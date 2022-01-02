@@ -3,13 +3,8 @@
 	--grey: #e0e0e0;
 	--violet: #30387C;
 	--cienet: #467DA0;
-}
-
-@font-face{
-	font-family: 'FacuIcons';
-	src: url('/source/tabler-icon-star.svg') format("svg");
-	src: url('/source/tabler-icon-star-half.svg') format("svg");
-
+	--red:#D81717 ;
+	--white: #fff;
 }
 
 * {
@@ -38,7 +33,7 @@ main{
 	grid-template-areas: 
 	"main aside";
 	grid-template-rows:100%;
-	grid-template-columns: 80% 15%;
+	grid-template-columns: 80% 20%;
 }
 
 main> section{
@@ -140,9 +135,15 @@ main> section{
 	color: var(--grey);
 	width: 56%;
 	margin-left: auto;
+	opacity: 0;
 	text-align: left;
 	font-size: 80%;
 	text-shadow: 1px 1px var(--black);
+	transition: all 0s;
+	-webkit-transition: all 0ss;
+	-moz-transition: all 0ss;
+	-ms-transition: all 0ss;
+	-o-transition: all 0ss;
 }
 .contenedor .pelicula:hover .descripcion{
 	opacity: 1;
@@ -154,11 +155,19 @@ main> section{
 	z-index: 20;
 	height: 93%;
 	width: 170%;
-	transition: all 0.7s;
-	-webkit-transition: all 0.7s;
-	-moz-transition: all 0.7s;
-	-ms-transition: all 0.7s;
-	-o-transition: all 0.7s;
+	transition: all 0.7s ease-out;
+	-webkit-transition: all 0.7s ease-out;
+	-moz-transition: all 0.7s ease-out;
+	-ms-transition: all 0.7s ease-out;
+	-o-transition: all 0.7s ease-out;
+}
+.contenedor .pelicula:hover .descripcion > p {
+	opacity: 1;
+	transition: all 0.5s ease-in 0.5s;
+	-webkit-transition: all 0.5s ease-in 0.5s;
+	-moz-transition: all 0.5s ease-in 0.5s;
+	-ms-transition: all 0.5s ease-in 0.5s;
+	-o-transition: all 0.5s ease-in 0.5s;
 }
 .contenedor .pelicula .descripcion .poster-descripcion{
 	position: absolute;
@@ -182,13 +191,29 @@ main> section{
 
 .contenedor .pelicula .descripcion label{
 	padding-left: 5px;
+	transition: all 0.5s ease-in 0.5s;
 	color: rgb(247, 243, 8);
 	font-size: 1rem;
 	position: absolute;
+	opacity: 0;
 	text-align: center;
 	top: 5%;
 	left: 0;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+}
+
+.contenedor .pelicula:hover .descripcion label{
+	opacity: 1;
+	transition: all 0.5s ease-in 0.5s;
+	-webkit-transition: all 0.5s ease-in 0.5s;
+	-moz-transition: all 0.5s ease-in 0.5s;
+	-ms-transition: all 0.5s ease-in 0.5s;
+	-o-transition: all 0.5s ease-in 0.5s;
 }
 .contenedor .pelicula .descripcion label .puntuacion{
 	background: transparent;
@@ -197,15 +222,28 @@ main> section{
 	height: 50px;
 	text-align: center;
 	border: 3px solid rgb(247, 243, 8);
+	opacity: 0;
+	transition: all 0s;
 	border-radius: 100px;
 	color: rgb(247, 243, 8);
 	-webkit-border-radius: 100px;
 	-moz-border-radius: 100px;
 	-ms-border-radius: 100px;
 	-o-border-radius: 100px;
+	-webkit-transition: all 0ss;
+	-moz-transition: all 0ss;
+	-ms-transition: all 0ss;
+	-o-transition: all 0ss;
 }
 
-
+.contenedor .pelicula:hover .descripcion label .puntuacion{
+	opacity: 1;
+	transition: all 0.5s ease-in 0.5s;
+	-webkit-transition: all 0.5s ease-in 0.5s;
+	-moz-transition: all 0.5s ease-in 0.5s;
+	-ms-transition: all 0.5s ease-in 0.5s;
+	-o-transition: all 0.5s ease-in 0.5s;
+}
 
 .paginacion {
 	position: sticky;
@@ -241,24 +279,24 @@ main> section{
 }
 
 .paginacion button:hover {
-	background: #D81717;
+	background: var(--red);
 }
 
 main> aside {
 	grid-area: aside;
 	display: flex;
 	flex-flow: column;
+	width: 100%;
 	align-items: center;
-	justify-content: space-around;
-	background: linear-gradient(to right, var(--violet) 20%, var(--cienet) 80%, var(--grey));
-	border-left: 1px solid black;
+	justify-content: space-evenly;
+	background: linear-gradient(to right, var(--violet) 20%, var(--cienet) 80%);
 	border-radius: 30px 0 0 0;
 	-webkit-border-radius: 30px 0 0 0;
 	-moz-border-radius: 30px 0 0 0;
 	-ms-border-radius: 30px 0 0 0;
 	-o-border-radius: 30px 0 0 0;
 }
-.relacionados .pelicula {
+.relacionados .peliculaTop {
 	text-align: center;
 	position: relative;
 	max-height: 175px;
@@ -271,16 +309,24 @@ main> aside {
 	-o-transition: all 1s;
 }
 
+.relacionados .peliculaTop {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;	
+}
 
-.relacionados .pelicula .titulo {
+
+
+.relacionados .peliculaTop .titulo {
 	font-size: 16px;
 	font-weight: 300;
 	color: var(--grey);
 }
 
-.relacionados .pelicula .poster {
+.relacionados .peliculaTop .poster {
 	position: relative;
-	width: 35%;
+	width: 40%;
 	margin-bottom: 10px;
 	border-radius: 15px;
 	filter: none;
@@ -296,16 +342,15 @@ main> aside {
 	-o-border-radius: 15px;
 }
 
-.relacionados .pelicula label{
+.relacionados .peliculaTop label{
 	padding-left: 5px;
 	color: rgb(247, 243, 8);
-	font-size: 1rem;
-	position: absolute;
+	font-size: 0.9rem;
 	text-align: center;
-	left: 5px;
+	margin-top: 6px;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.relacionados .pelicula label .puntuacion{
+.relacionados .peliculaTop label .puntuacion{
 	background: transparent;
 	font-size: 1.3em;
 	width: 50px;
@@ -324,7 +369,6 @@ main> aside {
 
 footer{
 	background-color: var(--cienet);
-	border-top: 2px solid var(--violet);
 	min-width: 100%;
 	height: 60px;
 	display: flex;

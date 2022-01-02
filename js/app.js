@@ -85,7 +85,7 @@ const topPelis = async() => {
         console.log(respuesta2)
 
         if(respuesta2.status === 200){
-            const datos2 = await respuesta2.json(); // la respuesta del servidor, tiene un metodo json() que sirve para acceder a la información que nos devolvió el servidor. Este método es asincrono, hay que esperar a que termine. Por eso utilizamos await
+            const datos2 = await respuesta2.json(); 
             let topPeliculas = "";
             for(let i = 0; i < 5; i++){
                 let pelicula = datos2.results[i];
@@ -93,7 +93,7 @@ const topPelis = async() => {
                 let puntajePeli = pelicula.vote_average / 2; 
                    
                 topPeliculas +=`
-                <div class="pelicula">
+                <div class="peliculaTop">
                     <img class="poster" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}" />
                     <h4 class="titulo">${pelicula.title}</h4>                            
                     <label> Puntuación :
@@ -103,20 +103,6 @@ const topPelis = async() => {
                 </div>
                 `
             }
-            // datos2.results.forEach(pelicula => {
-                // let puntajePeli = pelicula.vote_average / 2; 
-                   
-                // topPeliculas +=`
-                // <div class="pelicula">
-                //     <img class="poster" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}" />
-                //     <h4 class="titulo">${pelicula.title}</h4>                            
-                //     <label> Puntuación :
-                //         <input type="text" disabled value="${puntajePeli}" class="puntuacion"></input>
-                //     </label>
-
-                // </div>
-                // `
-            // });
             console.log(datos2.results);
             document.getElementById('relacionados').innerHTML = topPeliculas;
         }

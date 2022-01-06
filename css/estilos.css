@@ -155,19 +155,19 @@ main> section{
 	z-index: 20;
 	height: 93%;
 	width: 170%;
-	transition: all 0.7s ease-out;
-	-webkit-transition: all 0.7s ease-out;
-	-moz-transition: all 0.7s ease-out;
-	-ms-transition: all 0.7s ease-out;
-	-o-transition: all 0.7s ease-out;
+	transition: all 0.5s ease-in;
+	-webkit-transition: all 0.5s ease-in;
+	-moz-transition: all 0.5s ease-in;
+	-ms-transition: all 0.5s ease-in;
+	-o-transition: all 0.5s ease-in;
 }
 .contenedor .pelicula:hover .descripcion > p {
 	opacity: 1;
-	transition: all 0.5s ease-in 0.5s;
-	-webkit-transition: all 0.5s ease-in 0.5s;
-	-moz-transition: all 0.5s ease-in 0.5s;
-	-ms-transition: all 0.5s ease-in 0.5s;
-	-o-transition: all 0.5s ease-in 0.5s;
+	transition: all 0.5s ease-in 0.3s;
+	-webkit-transition: all 0.5s ease-in 0.3s;
+	-moz-transition: all 0.5s ease-in 0.3s;
+	-ms-transition: all 0.5s ease-in 0.3s;
+	-o-transition: all 0.5s ease-in 0.3s;
 }
 .contenedor .pelicula .descripcion .poster-descripcion{
 	position: absolute;
@@ -209,11 +209,11 @@ main> section{
 
 .contenedor .pelicula:hover .descripcion label{
 	opacity: 1;
-	transition: all 0.5s ease-in 0.5s;
-	-webkit-transition: all 0.5s ease-in 0.5s;
-	-moz-transition: all 0.5s ease-in 0.5s;
-	-ms-transition: all 0.5s ease-in 0.5s;
-	-o-transition: all 0.5s ease-in 0.5s;
+	transition: all 0.5s ease-in 0.3s;
+	-webkit-transition: all 0.5s ease-in 0.3s;
+	-moz-transition: all 0.5s ease-in 0.3s;
+	-ms-transition: all 0.5s ease-in 0.3s;
+	-o-transition: all 0.5s ease-in 0.3s;
 }
 .contenedor .pelicula .descripcion label .puntuacion{
 	background: transparent;
@@ -230,19 +230,19 @@ main> section{
 	-moz-border-radius: 100px;
 	-ms-border-radius: 100px;
 	-o-border-radius: 100px;
-	-webkit-transition: all 0ss;
-	-moz-transition: all 0ss;
-	-ms-transition: all 0ss;
-	-o-transition: all 0ss;
+	-webkit-transition: all 0s;
+	-moz-transition: all 0s;
+	-ms-transition: all 0s;
+	-o-transition: all 0s;
 }
 
 .contenedor .pelicula:hover .descripcion label .puntuacion{
 	opacity: 1;
-	transition: all 0.5s ease-in 0.5s;
-	-webkit-transition: all 0.5s ease-in 0.5s;
-	-moz-transition: all 0.5s ease-in 0.5s;
-	-ms-transition: all 0.5s ease-in 0.5s;
-	-o-transition: all 0.5s ease-in 0.5s;
+	transition: all 0.5s ease-in 0.3s;
+	-webkit-transition: all 0.5s ease-in 0.3s;
+	-moz-transition: all 0.5s ease-in 0.3s;
+	-ms-transition: all 0.5s ease-in 0.3s;
+	-o-transition: all 0.5s ease-in 0.3s;
 }
 
 .paginacion {
@@ -286,15 +286,31 @@ main> aside {
 	grid-area: aside;
 	display: flex;
 	flex-flow: column;
-	width: 100%;
-	align-items: center;
-	justify-content: space-evenly;
+	align-items: center;	
 	background: linear-gradient(to right, var(--violet) 20%, var(--cienet) 80%);
 	border-radius: 30px 0 0 0;
 	-webkit-border-radius: 30px 0 0 0;
 	-moz-border-radius: 30px 0 0 0;
 	-ms-border-radius: 30px 0 0 0;
 	-o-border-radius: 30px 0 0 0;
+}
+
+main  aside .relacionadosTitulo  {
+	font-weight: 600;
+	font-size: 1.3em;
+	height: 50px;
+	text-align: center;
+	text-shadow: 1px 1px var(--black);
+	margin-top: 30px;
+	color: var(--grey);
+}
+
+main > aside > section{
+	display: flex;
+	flex-flow: column;
+	width: 100%;
+	align-items: center;
+	justify-content: space-evenly;
 }
 .relacionados .peliculaTop {
 	text-align: center;
@@ -311,15 +327,24 @@ main> aside {
 
 .relacionados .peliculaTop {
 	display: flex;
+	width: 90%;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;	
+}
+.relacionados .peliculaTop div {
+	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;	
+	width: 100%;
+	gap: 10px 10px;
 }
 
 
 
 .relacionados .peliculaTop .titulo {
-	font-size: 16px;
+	width: 70%;
+	font-size: 14px;
 	font-weight: 300;
 	color: var(--grey);
 }
@@ -327,6 +352,7 @@ main> aside {
 .relacionados .peliculaTop .poster {
 	position: relative;
 	width: 40%;
+	min-width: 110px;
 	margin-bottom: 10px;
 	border-radius: 15px;
 	filter: none;
@@ -352,7 +378,7 @@ main> aside {
 }
 .relacionados .peliculaTop label .puntuacion{
 	background: transparent;
-	font-size: 1.3em;
+	font-size: 1.1em;
 	width: 50px;
 	height: 50px;
 	margin-left: 5px;

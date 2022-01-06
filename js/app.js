@@ -94,12 +94,15 @@ const topPelis = async() => {
                    
                 topPeliculas +=`
                 <div class="peliculaTop">
-                    <img class="poster" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}" />
-                    <h4 class="titulo">${pelicula.title}</h4>                            
-                    <label> Puntuación :
-                        <input type="text" disabled value="${puntajePeli}" class="puntuacion"></input>
-                    </label>
-
+                <img class="poster" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}" />
+                <div>
+                <h4 class="titulo">${pelicula.title}</h4>         
+                
+                <label>Calificación: 
+                <input type="text" disabled value="${puntajePeli}" class="puntuacion"></input>
+                </label>
+                
+                </div>
                 </div>
                 `
             }

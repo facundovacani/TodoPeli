@@ -38,7 +38,6 @@ main{
 
 main> section{
 	grid-area: main;
-
 }
 
 
@@ -46,11 +45,12 @@ main> section{
 	width: 100%;
 	max-width: 1200px;
 	margin: 0px auto 100px;
+	padding: 0 15px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 	display: flex;
-	gap: 100px 70px;
+	gap: 90px 40px;
 }
 
 .contenedor .pelicula {
@@ -129,8 +129,11 @@ main> section{
 	-o-transition: all 0s;
 	-webkit-filter: brightness(80%);
 }
-
-.descripcion > p {
+.descripcion div {
+	display: flex;
+	flex-direction: row-reverse;
+}
+.descripcion p {
 	padding-top: 10px;
 	color: var(--grey);
 	width: 56%;
@@ -140,10 +143,31 @@ main> section{
 	font-size: 80%;
 	text-shadow: 1px 1px var(--black);
 	transition: all 0s;
-	-webkit-transition: all 0ss;
-	-moz-transition: all 0ss;
-	-ms-transition: all 0ss;
-	-o-transition: all 0ss;
+	-webkit-transition: all 0s;
+	-moz-transition: all 0s;
+	-ms-transition: all 0s;
+	-o-transition: all 0s;
+}
+
+.contenedor .pelicula .descripcion .titulo-descripcion{
+	color: var(--white);
+	font-size: 1.2em;
+	margin: 5px 0;
+	opacity: 0;
+	transition: all ease-in 0s;
+	-webkit-transition: all ease-in 0s;
+	-moz-transition: all ease-in 0s;
+	-ms-transition: all ease-in 0s;
+	-o-transition: all ease-in 0s;
+}
+
+.contenedor .pelicula:hover .descripcion .titulo-descripcion{
+	opacity: 1;
+	transition: all 0.3s ease-in 0.3s;
+	-webkit-transition: all 0.3s ease-in 0.3s;
+	-moz-transition: all 0.3s ease-in 0.3s;
+	-ms-transition: all 0.3s ease-in 0.3s;
+	-o-transition: all 0.3s ease-in 0.3s;
 }
 .contenedor .pelicula:hover .descripcion{
 	opacity: 1;
@@ -155,19 +179,19 @@ main> section{
 	z-index: 20;
 	height: 93%;
 	width: 170%;
-	transition: all 0.5s ease-in;
-	-webkit-transition: all 0.5s ease-in;
-	-moz-transition: all 0.5s ease-in;
-	-ms-transition: all 0.5s ease-in;
-	-o-transition: all 0.5s ease-in;
+	transition: all 0.3s ease-in;
+	-webkit-transition: all 0.3s ease-in;
+	-moz-transition: all 0.3s ease-in;
+	-ms-transition: all 0.3s ease-in;
+	-o-transition: all 0.3s ease-in;
 }
-.contenedor .pelicula:hover .descripcion > p {
+.contenedor .pelicula:hover .descripcion p {
 	opacity: 1;
-	transition: all 0.5s ease-in 0.3s;
-	-webkit-transition: all 0.5s ease-in 0.3s;
-	-moz-transition: all 0.5s ease-in 0.3s;
-	-ms-transition: all 0.5s ease-in 0.3s;
-	-o-transition: all 0.5s ease-in 0.3s;
+	transition: all 0.3s ease-in 0.3s;
+	-webkit-transition: all 0.3s ease-in 0.3s;
+	-moz-transition: all 0.3s ease-in 0.3s;
+	-ms-transition: all 0.3s ease-in 0.3s;
+	-o-transition: all 0.3s ease-in 0.3s;
 }
 .contenedor .pelicula .descripcion .poster-descripcion{
 	position: absolute;
@@ -189,31 +213,35 @@ main> section{
 	opacity: 1;
 }
 
+.contenedor .pelicula .descripcion .descripcion-puntuacion-fecha{
+display: flex;
+flex-direction: column;
+gap: 5px;
+}
+
+
 .contenedor .pelicula .descripcion label{
 	padding-left: 5px;
 	transition: all 0.5s ease-in 0.5s;
 	color: rgb(247, 243, 8);
 	font-size: 1rem;
-	position: absolute;
 	opacity: 0;
 	text-align: center;
-	top: 5%;
-	left: 0;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	transition: all 0.5s;
-	-webkit-transition: all 0.5s;
-	-moz-transition: all 0.5s;
-	-ms-transition: all 0.5s;
-	-o-transition: all 0.5s;
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
 }
 
 .contenedor .pelicula:hover .descripcion label{
 	opacity: 1;
-	transition: all 0.5s ease-in 0.3s;
-	-webkit-transition: all 0.5s ease-in 0.3s;
-	-moz-transition: all 0.5s ease-in 0.3s;
-	-ms-transition: all 0.5s ease-in 0.3s;
-	-o-transition: all 0.5s ease-in 0.3s;
+	transition: all 0.3s ease-in 0.3s;
+	-webkit-transition: all 0.3s ease-in 0.3s;
+	-moz-transition: all 0.3s ease-in 0.3s;
+	-ms-transition: all 0.3s ease-in 0.3s;
+	-o-transition: all 0.3s ease-in 0.3s;
 }
 .contenedor .pelicula .descripcion label .puntuacion{
 	background: transparent;
@@ -244,7 +272,21 @@ main> section{
 	-ms-transition: all 0.5s ease-in 0.3s;
 	-o-transition: all 0.5s ease-in 0.3s;
 }
+.contenedor .pelicula .descripcion .descripcion-puntuacion-fecha .descripcion-fecha{
+	align-self: center;
+	padding-left: 5px;
+	color: var(--grey);
+	opacity: 0;
+}
 
+.contenedor .pelicula:hover .descripcion .descripcion-puntuacion-fecha .descripcion-fecha{
+	opacity: 1;
+	transition: all 0.3s ease-in 0.3s;
+	-webkit-transition: all 0.3s ease-in 0.3s;
+	-moz-transition: all 0.3s ease-in 0.3s;
+	-ms-transition: all 0.3s ease-in 0.3s;
+	-o-transition: all 0.3s ease-in 0.3s;
+}
 .paginacion {
 	position: sticky;
 	bottom: 0;

@@ -18,12 +18,11 @@ btnAnterior.addEventListener('click', () =>{
     } 
 })
 
-const cargarPeliculas = async() => { //Con async, hacemos a la la función asíncrona, y así funcionará await, que esta palabra reservada hará que el codigo se detenga hasta la obtención de una respuesta por parte del servidor
+const cargarPeliculas = async() => { //Con async, hacemos a la función asíncrona, y así funcionará await, que esta palabra reservada hará que el codigo se detenga hasta la obtención de una respuesta por parte del servidor
     //Cuando se trabaja con funciones asincronas, deberíamos trabajar con try y catch.
     //try intenta ejecutar un codigo, y en caso de que haya error, y no se pueda ejecutar el codigo, se utiliza catch para "atrapar" ese error y así poder identificar el mismo
     try {
         const respuesta = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=9e62ec52d34030a928f955e75cd4562e&language=es-MX&page=${pagina}`);
-
         if(respuesta.status === 200){
             const datos = await respuesta.json(); // la respuesta del servidor, tiene un metodo json() que sirve para acceder a la información que nos devolvió el servidor. Este método es asincrono, hay que esperar a que termine. Por eso utilizamos await
             let peliculas = "";
@@ -36,26 +35,39 @@ const cargarPeliculas = async() => { //Con async, hacemos a la la función asín
                         let nada = "No hay descripción disponible en este momento";
                         return nada;
                     }else{
-                        if(p.overview.length < 370){
+                        if(p.overview.length < 310){
                             return p.overview;
-                        }else if(p.overview.length >= 370){
-                            let cadenaNueva = p.overview.substring(0,369);
+                        }else if(p.overview.length >= 260){
+                            let cadenaNueva = p.overview.substring(0,259);
                             return cadenaNueva + "...";
                         }
 
                     }
-                };
+                }
+                let fechaBienPuesta = (f) =>{
+                    let ano = f.release_date.substring(0,4);
+                    let fechaFinal = `${ano}`;
+                   
+                    return fechaFinal
+                }
                 peliculas +=`
                 <div class="pelicula">
-                    <img class="poster" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}" />
+                    <img class="poster" loading="lazy" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}" />
                     <h3 class="titulo">${pelicula.title}</h3>
                     <div class="descripcion">
-                        <img class="poster-descripcion" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}" >
-                        <p>${limitarCaracteres(pelicula)}</p>                       
+                        <img class="poster-descripcion" loading="lazy" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}" >
+                        <h4 class="titulo-descripcion">${pelicula.title}</h4>
+                        <div>
+                            <p>${limitarCaracteres(pelicula)}</p>
+                            <div class="descripcion-puntuacion-fecha">
+                                <label> Puntuación :
+                                    <input type="text" disabled value="${puntajePeli}" class="puntuacion"></input>
+                                </label>
+                                <span class="descripcion-fecha">${fechaBienPuesta(pelicula)}</span>
 
-                        <label> Puntuación :
-                            <input type="text" disabled value="${puntajePeli}" class="puntuacion"></input>
-                        </label>
+                            </div>                       
+                        </div>
+
                         
                     </div>
                 </div>
@@ -94,7 +106,7 @@ const topPelis = async() => {
                    
                 topPeliculas +=`
                 <div class="peliculaTop">
-                <img class="poster" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}" />
+                <img class="poster" loading="lazy" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}" />
                 <div>
                 <h4 class="titulo">${pelicula.title}</h4>         
                 
